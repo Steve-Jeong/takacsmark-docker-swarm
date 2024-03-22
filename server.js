@@ -4,7 +4,7 @@ const os = require("os");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hello from Node! Wonderful no.1: " + os.hostname());
+  res.send("Hello from Node!: " + os.hostname());
 });
 
 app.listen(3000, () => {
