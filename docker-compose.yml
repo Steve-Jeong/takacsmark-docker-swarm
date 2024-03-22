@@ -1,7 +1,7 @@
 version: "3"
 services:
   nginx:
-    image: nginx:1.25.4-alpine3.18
+    image: nginx:1.25.4
     ports:
       - 80:80 # Host의 80번을 nginx container의 80으로 연결한다.
     volumes:
