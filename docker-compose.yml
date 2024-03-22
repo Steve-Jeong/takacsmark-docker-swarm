@@ -1,5 +1,14 @@
 version: "3"
 services:
+  nginx:
+    image: nginx:1.25.4-alpine3.18
+    ports:
+      - 80:80 # Host의 80번을 nginx container의 80으로 연결한다.
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - web
+
   web:
     deploy:
       replicas: 4
