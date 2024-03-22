@@ -1,0 +1,28 @@
+version: "3"
+services:
+  web:
+    deploy:
+      replicas: 4
+      restart_policy:
+        condition: on-failure
+      update_config:
+        parallelism: 1
+        delay: 10s
+    build: .
+    image: jst0930/swarm-example:1.0
+    stop_grace_period: 1s
+    volumes:
+      - .:/node/app
+      - /node/app/node_modules
+    ports:
+      - 80:3000
+    networks:
+      - mynet
+
+  db:
+    image: mongo:6
+    networks:
+      - mynet
+
+networks:
+  mynet:
